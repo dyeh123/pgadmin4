@@ -14,7 +14,7 @@
 
 FROM alpine:3.13 AS app-builder
 
-RUN yarn install --network-timeout 1000000
+RUN yarn --network-timeout 1000000
 
 RUN apk add --no-cache \
     autoconf \
