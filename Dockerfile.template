@@ -14,8 +14,6 @@
 
 FROM alpine:3.13 AS app-builder
 
-RUN yarn --network-timeout 1000000
-
 RUN apk add --no-cache \
     autoconf \
     automake \
@@ -31,6 +29,8 @@ RUN apk add --no-cache \
     nodejs \
     yarn \
     zlib-dev
+
+RUN yarn --network-timeout 1000000
 
 # Create the /pgadmin4 directory and copy the source into it. Explicitly
 # remove the node_modules directory as we'll recreate a clean version, as well
